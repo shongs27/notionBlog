@@ -1,0 +1,13 @@
+@use 'src/styles/colors';
+
+.container {
+  // background-color: colors.$S-BLACK;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 10px;
+  background-color: colors.$S-BLACK;
+}
