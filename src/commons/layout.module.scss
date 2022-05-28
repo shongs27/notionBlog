@@ -1,0 +1,23 @@
+@use 'src/styles/colors';
+.layout {
+  height: 100vh;
+
+  .main {
+    min-height: 100%;
+  }
+}
+
+.otherColor {
+  background-color: colors.$S-BLACK;
+}
+
+.pageIntro {
+  margin: 0 200px;
+  padding: 4em 0;
+}
+
+.pageMain {
+  margin: 0 300px;
+  padding: 2em 0;
+  min-height: 400px;
+}

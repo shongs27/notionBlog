@@ -1,0 +1,33 @@
+.tagPosts {
+  min-height: 500px;
+  margin-bottom: 60px;
+}
+
+.postList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  column-gap: 1.8rem;
+  row-gap: 1.8rem;
+
+  li {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 5%);
+    transition: all 0.2s !important;
+    // margin-bottom: 24px !important;
+    background-color: #fff;
+    word-wrap: break-word;
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: black;
+    }
+
+    span {
+      font-size: 0.7em;
+      color: red;
+    }
+  }
+}

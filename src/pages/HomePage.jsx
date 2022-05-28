@@ -1,6 +1,5 @@
 import styles from './HomePage.module.scss';
 
-import MainDoor from '../components/MainDoor';
 import { homeIntro } from '../fixture/posts';
 import TagPosts from '../commons/TagPosts';
 import { useSelector } from 'react-redux';
@@ -11,10 +10,6 @@ export default function HomePage() {
 
   return (
     <div className={styles.container}>
-      {/* Maindoor를 Layout Main에서 분리시킬까 */}
-      <MainDoor />
-      <div className={styles.line} />
-
       <TagPosts intro={homeIntro} tags={pageTags} posts={pagePosts} />
 
       <div className="pageNation">
