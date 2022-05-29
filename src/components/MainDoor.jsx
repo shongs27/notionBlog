@@ -15,12 +15,17 @@ export default function MainDoor() {
         <p>제가 공부한 내용을 정리하여 공유하는 블로그입니다</p>
 
         <button type="button">
-          <Link to="/me">About Me</Link>
+          <Link to="/about">About Me</Link>
         </button>
       </div>
 
       <div className={styles.github}>
-        <a href="https://github.com/shongs27" target="_blank" title="깃허브">
+        <a
+          href="https://github.com/shongs27"
+          target="_blank"
+          rel="noreferrer"
+          title="깃허브"
+        >
           <img
             src="https://avatars.githubusercontent.com/u/55541745?v=4"
             alt="릭앤모티 모티"

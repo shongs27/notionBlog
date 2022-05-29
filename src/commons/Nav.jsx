@@ -33,7 +33,7 @@ export default function Nav() {
       <div className={styles.navBar}>
         <div className={styles.logo}>
           <Link to="/">
-            <img src="favicon.ico" />
+            <img src="favicon.ico" alt="hongs blog" />
             <span>ongs Blog</span>
           </Link>
         </div>

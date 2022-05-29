@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import FooterBar from './FooterBar';
 import MainDoor from '../components/MainDoor';

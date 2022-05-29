@@ -8,7 +8,6 @@ import TagPosts from './commons/TagPosts';
 import About from './components/About';
 import Contact from './components/Contact';
 import Works from './components/Works';
-import HomePage from './pages/HomePage';
 import { getPosts } from './slice';
 
 function App() {
@@ -22,13 +21,13 @@ function App() {
     <div>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/blog" element={<HomePage />} />
-          <Route path="/works" element={<Works />} />
+          <Route path="/" element={<TagPosts />} />
+          {/* <Route path="/blog" element={<HomePage />} />
+          <Route path="/works" element={<Works />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/:tag" element={<TagPosts />} />
-          <Route path="/:tag/:id" element={<PostDetail />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
         </Route>
       </Routes>
     </div>

@@ -4,61 +4,71 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   search: '',
+  // 3. PostDetail
   post: '',
-  // pageTags에서 count 더한거
-  pageTotalTags: 10,
-  // TagPosts를 구성하는 Tags // pageTags에서 가공해서 가져옴
+  postTags: [],
+  // 2. TagPosts에서 쓰임 [미구현]
+  // ?notion에서 API를 보내 따로 받아와서 pagePosts에 저장
+  // pagePosts-> pageTags와 pageTotalTags도 비동기 함수로 클라이언트에서 만듦
+  pageTotalTags: 8,
   pageTags: [
-    { tag: 'javascript', count: 2 },
-    { tag: 'node.js', count: 4 },
-    { tag: 'http', count: 4 },
+    { tag: 'Javascript', count: 4 },
+    { tag: '브라우저', count: 3 },
+    { tag: 'CS', count: 1 },
   ],
-  // TagPosts를 구성하는 posts // posts에서 잘라서 가져온다
   pagePosts: [
     {
       id: '37f234a3081e4b898b0ad79ca2aeb7af',
-      title: 'DNS란? (도메인 네임 시스템 개념부터 작동 방식까지',
-      writer: '허니몬',
-      date: '2022-04-10',
-      tags: ['CS', '아무거나'],
+      title: '브라우저의 렌더링 과정',
+      writer: '홍원배',
+      date: '2022-05-28',
+      tags: ['브라우저', 'Javascript'],
       contents:
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
     {
-      id: '37f234a3081e4b898b0ad79ca2aeb7af',
+      id: '060753dff10a4a2ab9df5e940a81c84a',
 
-      title: 'DNS란? (도메인 네임 시스템 개념부터 작동 방식까지',
-      writer: '허니몬',
-      date: '2022-04-10',
-      tags: ['http', 'love'],
+      title: '호이스팅',
+      writer: '홍원배',
+      date: '2022-05-28',
+      tags: ['Javascript'],
       contents:
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
     {
-      id: '37f234a3081e4b898b0ad79ca2aeb7af',
+      id: '72751ae7a3124d6a865743202dcdbad1',
 
-      title: 'DNS란? (도메인 네임 시스템 개념부터 작동 방식까지',
-      writer: '허니몬',
-      date: '2022-04-10',
-      tags: ['아무거나'],
+      title: '클로저',
+      writer: '홍원배',
+      date: '2022-05-29',
+      tags: ['Javascript'],
       contents:
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
     {
-      id: '37f234a3081e4b898b0ad79ca2aeb7af',
+      id: 'this-495aaded184344c9ba60df3f42f8f22d',
 
-      title: 'DNS란? (도메인 네임 시스템 개념부터 작동 방식까지',
-      writer: '허니몬',
-      date: '2022-04-10',
-      tags: ['호우', '잘생김'],
+      title: 'this, 브라우저 저장소',
+      writer: '홍원배',
+      date: '2022-05-29',
+      tags: ['브라우저', 'Javascript'],
+      contents:
+        '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
+    },
+    {
+      id: '44ff251f82a24300b3179b3add46ac4d',
+
+      title: '싱글스레드와 이벤트루프',
+      writer: '홍원배',
+      date: '2022-05-29',
+      tags: ['CS', '브라우저'],
       contents:
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
   ],
-  // 다 받아온 posts
+  // 1. postsID에 맞추어 posts에 다 받아오기
   posts: [],
-
-  // 공개하는 포스트들은 일단 여기 담아두자
   postsID: [
     '37f234a3081e4b898b0ad79ca2aeb7af',
     '060753dff10a4a2ab9df5e940a81c84a',
@@ -70,6 +80,7 @@ const initialState = {
 
 const reducers = {
   setPost: (state, { payload: post }) => ({ ...state, post }),
+  setPostTags: (state, { payload: postTags }) => ({ ...state, postTags }),
   setPosts: (state, { payload: posts }) => ({ ...state, posts }),
   changeSearchInput: (state, { payload: text }) => ({ ...state, search: text }),
 };
@@ -80,7 +91,7 @@ const { actions, reducer } = createSlice({
   reducers,
 });
 
-export const { setPost, setPosts, changeSearchInput } = actions;
+export const { setPost, setPostTags, setPosts, changeSearchInput } = actions;
 
 export default reducer;
 
@@ -101,12 +112,16 @@ export function getPosts() {
 }
 
 export function loadPost(NOTION_PAGE_ID) {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     const response = await fetch(
       `https://notion-api.splitbee.io/v1/page/${NOTION_PAGE_ID}`
     );
     const post = await response.json();
 
     dispatch(setPost(post));
+
+    const { pagePosts } = getState();
+    const { tags } = pagePosts.find(({ id }) => id === NOTION_PAGE_ID);
+    dispatch(setPostTags(tags));
   };
 }
