@@ -1,0 +1,70 @@
+@use 'src/styles/colors';
+
+@keyframes fadeInOut {
+  from,
+  to {
+    visibility: visible;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+  width: 200px;
+  height: 80%;
+  margin-top: 5px;
+  margin-right: 20px;
+
+  background-color: white;
+
+  border-radius: 30px;
+  border: 1px solid colors.$PUPLE;
+  outline: 3px solid colors.$PUPLE;
+
+  .item {
+    flex: 1 50%;
+    border: none;
+    border-radius: 30px;
+    background: inherit;
+
+    svg {
+      width: 50px;
+      height: 40px;
+    }
+  }
+
+  .middleItem {
+    border-radius: 0;
+    border-left: 3px solid colors.$PUPLE;
+    border-right: 3px solid colors.$PUPLE;
+  }
+}
+
+.clipboard {
+  position: fixed;
+  right: 5em;
+  bottom: 3em;
+
+  visibility: hidden;
+
+  width: 20em;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+
+  background-color: #0fbcf9;
+
+  border-radius: 30px;
+  border: 3px solid #eee;
+  outline: 1px solid #aaa;
+  z-index: 1;
+}
+
+.hasClipboard {
+  animation: fadeInOut 2s;
+}

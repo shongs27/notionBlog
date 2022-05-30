@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CircleQuestionIcon } from '../assets/svgs';
 import styles from './about.module.scss';
+import AboutMenu from './AboutMenu';
+import cx from 'classnames';
 
 export default function About() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -11,14 +14,15 @@ export default function About() {
 
   return (
     <>
-      <h1 className={styles.head}>😁발전하는 개발자 홍원배입니다</h1>
+      <h1 className={styles.head}>
+        😁발전하는 개발자 <strong>홍원배</strong>입니다
+      </h1>
 
       <div className={styles.category}>
         <h2>🙋‍♂️ About me</h2>
         <div className={styles.content}>
-          <div>
-            <img src="하하하.png" alt="홍원배" width="180px" height="180px" />
-          </div>
+          <img src="하하하.png" alt="홍원배" width="180px" height="180px" />
+
           <div className={styles.contentIntroduce}>
             <h3>Intorduction</h3>
             <ul>
@@ -49,7 +53,7 @@ export default function About() {
               <li>
                 <a
                   className={styles.linkPage}
-                  href="https://shongs27.kr"
+                  href="https://naver.com"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -64,7 +68,7 @@ export default function About() {
 
       <div className={styles.category}>
         <h2>💻 Skills</h2>
-        <div style={{ paddingTop: '10px', paddingLeft: '20px' }}>
+        <div className={styles.skills}>
           <h3>Fronted</h3>
           <ul>
             <li>Html, CSS, Javascript</li>
@@ -73,8 +77,7 @@ export default function About() {
             <li>Jest</li>
           </ul>
         </div>
-        &nbsp;
-        <div style={{ paddingBottom: '10px', paddingLeft: '20px' }}>
+        <div className={styles.skills}>
           <h3>Backend</h3>
           <ul>
             <li>NodeJS</li>
@@ -86,10 +89,9 @@ export default function About() {
 
       <div className={styles.category}>
         <h2>👨🏼‍💻 Projects</h2>
-
         <div className={styles.container}>
           <h3>개인 블로그</h3>
-          <p>2022.01 ~</p>
+          <p className={styles.date}>2022.01 ~</p>
           <ul>
             <li>TDD 개발방법론을 적용한 기술블로그</li>
             <li>notion을 통해 정리된 글을 포스트로 렌더링</li>
@@ -107,21 +109,14 @@ export default function About() {
         <h2>👨‍🏫 Education</h2>
         <div className={styles.container}>
           <h3>코드숨 리액트 6기</h3>
-          <p>2021.12</p>
+          <p className={styles.date}>2021.12</p>
           <p>코드숨 교육기관 리액트 TDD 개발방법론</p>
           <ul>
             <li>3개월 과정</li>
             <li>리팩토링을 통한 리액트 실습</li>
             <li>테스트 개발방법론 학습</li>
             <li>
-              <a
-                style={{
-                  textDecoration: 'none',
-                  color: '#bdc3c7',
-                  fontStyle: 'italic',
-                }}
-                href="https://www.codesoom.com/"
-              >
+              <a className={styles.codesoom} href="https://www.codesoom.com/">
                 코드숨 홈페이지 링크
               </a>
             </li>
@@ -137,7 +132,7 @@ export default function About() {
 
         <div className={styles.container}>
           <h3>인텔과 함께하는 AI</h3>
-          <p>2020.01</p>
+          <p className={styles.date}>2020.01</p>
           <p>
             인텔에서 주관하는 인공지능 관련 교육과 드론을 이용한 자동주행 실습
           </p>
@@ -148,7 +143,7 @@ export default function About() {
 
         <div className={styles.container}>
           <h3>빅데이터 청년인재</h3>
-          <p>2019.06</p>
+          <p className={styles.date}>2019.06</p>
           <p>과학통신부 주관 빅데이터 청년인재</p>
           <ul>
             <li>3개월 교육과정</li>
@@ -195,28 +190,28 @@ export default function About() {
 
       <div className={styles.category}>
         <h2>💬 Mottos</h2>
-        <div className={styles.MottosList}>
+        <ul className={styles.mottosList}>
           <li>매일 하는 학습</li>
           <li>'척' 하지말자</li>
-          <li>메타인지를 통해 분명하고 명확하게 학습하자</li>
-        </div>
+          <li>메타인지를 통해 명확하게 학습하자</li>
+        </ul>
       </div>
 
       <div className={styles.addon}>
-        <div className={styles.itemMenu}>
-          {/* clicked={openMenu} */}
-          {/* <ResumeMenu /> */}
+        <div
+          className={cx(styles.itemMenu, { [styles.visibleItem]: openMenu })}
+        >
+          <AboutMenu />
         </div>
 
-        <div
-          className={styles.listMenu}
+        <button
+          className={cx(styles.listMenu, { [styles.openMenu]: openMenu })}
           type="button"
           title="도움메뉴 열고 닫기"
           onClick={handleClick}
-          // clicked={openMenu}
         >
-          {/* <FontAwesomeIcon icon={faCircleQuestion} size="4x" /> */}
-        </div>
+          <CircleQuestionIcon />
+        </button>
       </div>
     </>
   );

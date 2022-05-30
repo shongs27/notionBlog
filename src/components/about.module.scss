@@ -1,28 +1,69 @@
-// const bounce = keyframes`
-// from, to {
-//   transform: translate3d(0,0,0);
-// }
+@use 'src/styles/colors';
 
-// 50% {
-//   transform: translate3d(0, 5px, 0);
-// }
+@keyframes bounce {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 7px, 0);
+  }
+}
 
-// `;
+@keyframes fadeIn {
+  from {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
 .head {
   margin: 2em 1em;
+
+  & strong {
+    color: colors.$PUPLE;
+  }
 }
 
 .category {
-  // minHeight: className === mottos ? 18em : 24em,
+  min-height: 18em;
 
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 2em;
+  padding-bottom: 1em;
+  margin-bottom: 3em;
+
+  & img {
+    margin-top: 2em;
+    margin-left: 1em;
+  }
 
   & h2 {
     padding: 0.5em;
-    background-color: #3498db;
+    background-color: colors.$PUPLE;
   }
+
+  & h3 {
+    margin: 0.4em 0.8em;
+    color: colors.$PUPLE;
+  }
+
+  & li {
+    list-style: disc inside;
+    margin-left: 0.8em;
+  }
+
+  .date {
+    color: colors.$GRAY;
+    font-weight: bold;
+  }
+}
+
+.skills {
+  padding: 10px 20px 10px;
 }
 
 .content {
@@ -42,45 +83,66 @@
 }
 
 .container {
-  margin-top: 10px;
-  padding: 20px;
+  margin-top: 1.4em;
+  padding: 1.4em;
   border: 2px solid rgb(33, 150, 243);
   border-radius: 20px;
-}
 
-.addon {
-  display: flex;
-  justify-content: end;
-}
-
-.listMenu {
-  border: none;
-  background-color: inherit;
-
-  // animation: clicked || `${bounce} 1.8s ease infinite alternate`;
-}
-
-.itemMenu {
-  position: relative;
-  right: 1.2em;
-  top: -1em;
-
-  visibility: hidden;
-  // animation: clicked && `${fadeIn} 2s ease forwards`;
-}
-
-.mottosList {
-  & li {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  p {
+    margin-top: 1em;
+    line-height: 1.5em;
   }
 }
 
-.certificationConatainer {
+.certificationContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
   & div {
     margin: 10px;
   }
+}
+
+.mottosList {
+  & li {
+    line-height: 2.5em;
+  }
+}
+
+.addon {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 5em;
+  margin-right: 2em;
+
+  .listMenu {
+    width: 80px;
+    height: 80px;
+
+    animation: bounce 1.5s ease-out infinite;
+
+    svg {
+      fill: colors.$PUPLE;
+      background-color: black;
+      outline: 5px solid black;
+    }
+  }
+
+  .openMenu {
+    animation: none;
+  }
+
+  .itemMenu {
+    visibility: hidden;
+  }
+
+  .visibleItem {
+    animation: fadeIn 2s ease forwards;
+  }
+}
+
+.codesoom {
+  text-decoration: none;
+  color: #bdc3c7;
+  font-style: italic;
 }

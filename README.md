@@ -8,6 +8,9 @@ PostDetail : 개별 포스트들 하나하나 (NotionAPI로 구현)
 # 할 것
 
 1. about 정리
+
+- [ ] 메뉴 누르는거 정리
+
 2. works 게임 넣기
 3. blog
    - [ ] blog css
