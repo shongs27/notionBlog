@@ -1,0 +1,75 @@
+@use 'src/styles/colors';
+
+form {
+  width: 80%;
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 1em;
+  }
+
+  label {
+    display: none;
+  }
+
+  .forminputs {
+    display: flex;
+    margin-bottom: 1em;
+
+    .forminput {
+      flex: 1 50%;
+
+      input {
+        color: colors.$SS-BLACK;
+        padding: 0.4em 0.2em;
+
+        width: 80%;
+        height: 50px;
+        font-weight: bold;
+        font-size: 0.8rem;
+        padding: 0;
+        border-radius: 5px;
+        background-color: colors.$S-GRAY;
+        border: none;
+        outline: none;
+        padding-left: 1em;
+      }
+    }
+  }
+
+  .formText {
+    width: 100%;
+
+    textarea {
+      color: colors.$SS-BLACK;
+      width: 90%;
+      min-height: 400px;
+      padding: 0.3em 0.6em;
+      font-size: 1.2rem;
+      font-weight: bolder;
+
+      border-radius: 5px;
+      background-color: colors.$S-GRAY;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .formButton {
+    display: flex;
+    justify-content: end;
+    margin: 20px 10% 50px;
+
+    button {
+      padding: 0.8em 1.2em;
+      color: black;
+      border-radius: 5px;
+      transition: 0.2s ease-out;
+      font-size: 1rem;
+      &:hover {
+        color: white;
+        background-color: colors.$PUPLE;
+      }
+    }
+  }
+}

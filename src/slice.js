@@ -3,6 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 // import { fetchRegions } from './services/api';
 
 const initialState = {
+  contactForm: {
+    name: '',
+    email: '',
+    message: '',
+  },
   search: '',
   // 3. PostDetail
   post: '',
@@ -83,6 +88,13 @@ const reducers = {
   setPostTags: (state, { payload: postTags }) => ({ ...state, postTags }),
   setPosts: (state, { payload: posts }) => ({ ...state, posts }),
   changeSearchInput: (state, { payload: text }) => ({ ...state, search: text }),
+  changeContactForm: (state, { payload: { name, value } }) => ({
+    ...state,
+    contactForm: {
+      ...state.contactForm,
+      [name]: value,
+    },
+  }),
 };
 
 const { actions, reducer } = createSlice({
@@ -91,7 +103,14 @@ const { actions, reducer } = createSlice({
   reducers,
 });
 
-export const { setPost, setPostTags, setPosts, changeSearchInput } = actions;
+export const {
+  setPost,
+  setPostTags,
+  setPosts,
+  changeSearchInput,
+  setContactForm,
+  changeContactForm,
+} = actions;
 
 export default reducer;
 
