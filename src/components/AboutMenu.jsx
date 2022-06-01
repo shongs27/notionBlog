@@ -22,7 +22,7 @@ export default function AboutMenu() {
     //초기화
     setTimeout(() => {
       setHasClipboard((prev) => !prev);
-    }, 200);
+    }, 2000);
   }
 
   function handleScroll() {

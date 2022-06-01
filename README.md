@@ -7,11 +7,10 @@ PostDetail : 개별 포스트들 하나하나 (NotionAPI로 구현)
 
 # 할 것
 
-1. about 정리
+1. blog
 
-- [ ] 메뉴 누르는거 정리
+- [ ] 리스트 이미지 처리
+- [ ] box-shadow hover 이벤트 처리
+- [ ] 페이지네이션
 
 2. works 게임 넣기
-3. blog
-   - [ ] blog css
-   - [ ] blog 페이지네이션

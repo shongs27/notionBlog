@@ -26,10 +26,12 @@ export default function TagPosts() {
   return (
     <div className={styles.tagPosts}>
       <h1>
-        {tag} <mark>{pageTotalTags}</mark>
+        <span className={styles.title}>{tag}</span>
+        <span className={styles.titleCount}>{pageTotalTags}</span>
       </h1>
+
       {/* <p>{intro.intro}</p> */}
-      <ul>
+      <ul className={styles.category}>
         {pageTags.map(({ tag, count }) => (
           <li>{`${tag}(${count})`}</li>
         ))}
@@ -39,14 +41,17 @@ export default function TagPosts() {
         {pagePosts.map(({ id, title, writer, date, tags, contents }) => (
           <li>
             <Link to={`/posts/${id}`}>
-              <img src="" alt="공사중" />
+              <img
+                src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+                alt="공사중"
+              />
               <h2>{title}</h2>
-              <p>
+              <p className={styles.postMeta}>
                 <span>{writer}</span>
-                <span>{date}</span>
+                <span> | </span> <span>{date}</span>
                 {/* <span>tags[0]</span> */}
-                <span>{contents}</span>
               </p>
+              <p className={styles.postContents}>{contents}</p>
             </Link>
           </li>
         ))}
