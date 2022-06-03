@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
@@ -19,6 +20,23 @@ export default function TagPosts() {
   const pageTags = useSelector((state) => state.pageTags);
   const pageTotalTags = useSelector((state) => state.pageTotalTags);
 
+  const [page, setPage] = useState(1);
+  const PER_PAGE_COUNT = 6;
+  const offset = (page - 1) * PER_PAGE_COUNT;
+  const totalPage = Math.ceil(pagePosts.length / PER_PAGE_COUNT);
+
+  function handlePrevPage() {
+    setPage((page) => page - 1);
+  }
+
+  function handleNextPage() {
+    setPage((page) => page + 1);
+  }
+
+  function handlePage(page) {
+    setPage(page);
+  }
+
   if (!pagePosts.length) {
     return <div>해당 포스팅이 없습니다</div>;
   }
@@ -38,28 +56,47 @@ export default function TagPosts() {
       </ul>
 
       <ul className={styles.postList}>
-        {pagePosts.map(({ id, title, writer, date, tags, contents }) => (
-          <li>
-            <Link to={`/posts/${id}`}>
-              <img
-                src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-                alt="공사중"
-              />
-              <h2>{title}</h2>
-              <p className={styles.postMeta}>
-                <span>{writer}</span>
-                <span> | </span> <span>{date}</span>
-                {/* <span>tags[0]</span> */}
-              </p>
-              <p className={styles.postContents}>{contents}</p>
-            </Link>
-          </li>
-        ))}
+        {pagePosts
+          .slice(offset, offset + PER_PAGE_COUNT)
+          .map(({ id, title, writer, date, tags, contents }) => (
+            <li>
+              <Link to={`/posts/${id}`}>
+                <img
+                  src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+                  alt="공사중"
+                />
+                <h2>{title}</h2>
+                <p className={styles.postMeta}>
+                  <span>{writer}</span>
+                  <span> | </span> <span>{date}</span>
+                  {/* <span>tags[0]</span> */}
+                </p>
+                <p className={styles.postContents}>{contents}</p>
+              </Link>
+            </li>
+          ))}
       </ul>
 
-      <div className="pageNation">
-        페이지 네이션 구분
-        <p>&lt;&lt; 1 2 3 4 5 6 7 &gt; &gt;</p>
+      <div className={styles.pageNation}>
+        <button type="button" onClick={handlePrevPage} disabled={page === 1}>
+          &lt;
+        </button>
+
+        {Array(totalPage)
+          .fill()
+          .map((_, i) => (
+            <button type="button" onClick={() => handlePage(i + 1)}>
+              {i + 1}
+            </button>
+          ))}
+
+        <button
+          type="button"
+          onClick={handleNextPage}
+          disabled={page === totalPage}
+        >
+          &gt;
+        </button>
       </div>
     </div>
   );
