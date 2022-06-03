@@ -33,12 +33,11 @@
     display: flex;
     li {
       margin-right: 15px;
-      // border: 1px solid white;
       border: none;
       border-radius: 3px;
       background-color: rgb(226, 232, 240);
       color: black;
-      padding: 0 15px;
+      padding: 2px 15px;
       cursor: pointer;
       transition: 0.2s ease-out;
       word-break: keep-all;
