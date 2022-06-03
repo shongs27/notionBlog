@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // import { fetchRegions } from './services/api';
 
 const initialState = {
+  currentPage: 1,
   contactForm: {
     name: '',
     email: '',
@@ -144,6 +145,10 @@ const reducers = {
       [name]: value,
     },
   }),
+  setCurrentPage: (state, { payload: currentPage }) => ({
+    ...state,
+    currentPage,
+  }),
 };
 
 const { actions, reducer } = createSlice({
@@ -159,6 +164,7 @@ export const {
   changeSearchInput,
   setContactForm,
   changeContactForm,
+  setCurrentPage,
 } = actions;
 
 export default reducer;
