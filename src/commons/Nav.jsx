@@ -55,7 +55,9 @@ export default function Nav() {
             <Link to="/blog">Blog</Link>
           </li>
           <li>
-            <Link to="/works">Works</Link>
+            <a href="mortyGame/index.html" target="_blank">
+              Works
+            </a>
           </li>
           <li>
             <Link to="/about">About</Link>

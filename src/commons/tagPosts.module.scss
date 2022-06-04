@@ -103,13 +103,10 @@
       }
 
       .postContents {
-        padding: 0 10px;
-        display: -webkit-box;
+        padding: 0 15px;
         height: 150px;
         overflow: hidden;
         word-break: break-all;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
         color: black;
         font-size: 0.8em;
       }

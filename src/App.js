@@ -7,7 +7,6 @@ import PostDetail from './commons/PostDetail';
 import TagPosts from './commons/TagPosts';
 import About from './components/About';
 import Contact from './components/Contact';
-import Works from './components/Works';
 import { getPosts } from './slice';
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<TagPosts />} />
-          <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/:tag" element={<TagPosts />} />
