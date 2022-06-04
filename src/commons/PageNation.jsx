@@ -1,3 +1,5 @@
+import styles from './pageNation.module.scss';
+
 export default function PageNation({ page, totalPage, handlePage }) {
   function handleClick(e) {
     const {
@@ -10,14 +12,27 @@ export default function PageNation({ page, totalPage, handlePage }) {
   }
 
   return (
-    <>
+    <div className={styles.pageNation}>
+      <span>
+        Page {page}/{totalPage}
+      </span>
+
+      <button
+        type="button"
+        data-page="1"
+        onClick={handleClick}
+        disabled={page === 1}
+      >
+        &lt;&lt; First
+      </button>
+
       <button
         type="button"
         data-page="prev"
         onClick={handleClick}
         disabled={page === 1}
       >
-        &lt;
+        Prev
       </button>
 
       {Array(totalPage)
@@ -34,8 +49,17 @@ export default function PageNation({ page, totalPage, handlePage }) {
         onClick={handleClick}
         disabled={page === totalPage}
       >
-        &gt;
+        Next
       </button>
-    </>
+
+      <button
+        type="button"
+        data-page={totalPage}
+        onClick={handleClick}
+        disabled={page === totalPage}
+      >
+        Last &gt; &gt;
+      </button>
+    </div>
   );
 }

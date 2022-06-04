@@ -6,7 +6,7 @@ import PageNation from './PageNation';
 import styles from './tagPosts.module.scss';
 
 export default function TagPosts() {
-  const tag = useParams().tag.toUpperCase();
+  const tag = useParams().tag?.toUpperCase();
 
   const dispatch = useDispatch();
   const pagePosts = useSelector((state) => state.pagePosts);
@@ -69,7 +69,7 @@ export default function TagPosts() {
           ))}
       </ul>
 
-      <div className={styles.pageNation}>
+      <div className={styles.pageNationContainer}>
         <PageNation page={page} totalPage={totalPage} handlePage={handlePage} />
       </div>
     </div>
