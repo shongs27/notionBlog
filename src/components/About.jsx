@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { CircleQuestionIcon } from '../assets/svgs';
 import styles from './about.module.scss';
 import AboutMenu from './AboutMenu';

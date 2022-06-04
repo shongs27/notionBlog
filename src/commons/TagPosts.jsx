@@ -6,9 +6,9 @@ import PageNation from './PageNation';
 import styles from './tagPosts.module.scss';
 
 export default function TagPosts() {
-  const { tag = 'BLOG' } = useParams();
-  const dispatch = useDispatch();
+  const tag = useParams().tag.toUpperCase();
 
+  const dispatch = useDispatch();
   const pagePosts = useSelector((state) => state.pagePosts);
   const pageTags = useSelector((state) => state.pageTags);
   const pageTotalTags = useSelector((state) => state.pageTotalTags);
@@ -41,7 +41,9 @@ export default function TagPosts() {
       {/* <p>{intro.intro}</p> */}
       <ul className={styles.category}>
         {pageTags.map(({ tag, count }) => (
-          <li>{`${tag}(${count})`}</li>
+          <li>
+            <Link to={`/${tag}`}>{`${tag}(${count})`}</Link>
+          </li>
         ))}
       </ul>
 

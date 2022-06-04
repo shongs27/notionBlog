@@ -14,6 +14,8 @@ PostDetail : 개별 포스트들 하나하나 (NotionAPI로 구현)
 
 - [ ] works 게임 넣기
 
+## 일
+
 - [ ] eslint, stylelint 적용
 
 1. blog

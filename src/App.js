@@ -22,8 +22,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<TagPosts />} />
-          {/* <Route path="/blog" element={<HomePage />} />
-          <Route path="/works" element={<Works />} /> */}
+          <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/:tag" element={<TagPosts />} />
