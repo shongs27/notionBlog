@@ -52,7 +52,7 @@ export default function About() {
               <li>
                 <a
                   className={styles.linkPage}
-                  href="https://naver.com"
+                  href="https://shongs27.github.io/notionBlog/"
                   target="_blank"
                   rel="noreferrer"
                 >
