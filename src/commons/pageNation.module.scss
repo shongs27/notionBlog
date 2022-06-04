@@ -1,24 +1,24 @@
 @use 'src/styles/colors';
 
 .pageNation {
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
   padding: 2.5px;
   margin: 30px auto;
 
   span,
   button {
     display: inline-block;
-    margin: 4px;
-    color: #718096;
-    font-weight: 500 !important;
     padding: 5px 10px;
-    line-height: 25px;
-    border-radius: 5px;
-    border: none;
-    background: #e2e8f0;
+    margin: 4px;
     font-size: 1rem;
+    font-weight: 500 !important;
+    line-height: 25px;
+    color: colors.$GRAY;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 5px;
   }
 
   span {
@@ -40,10 +40,10 @@
     }
 
     &[aria-current] {
-      color: colors.$WHITE;
-      background-color: colors.$PUPLE;
       font-weight: bold;
+      color: colors.$WHITE;
       cursor: revert;
+      background-color: colors.$PUPLE;
     }
   }
 }

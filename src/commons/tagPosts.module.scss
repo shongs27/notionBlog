@@ -11,13 +11,13 @@
 
     .titleCount {
       display: inline-block;
-      padding-left: 5px;
       padding-right: 5px;
+      padding-left: 5px;
       line-height: 1;
       color: colors.$PUPLE;
       background-color: colors.$WHITE;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 5%);
       transition: 0.2s ease-out;
-      box-shadow: 0 0 5px 0 rgb(0 0 0 / 5%);
 
       &:hover {
         color: colors.$WHITE;
@@ -27,21 +27,21 @@
   }
 
   .category {
+    display: flex;
     padding-top: 15px;
     padding-bottom: 50px;
 
-    display: flex;
     li {
-      margin-right: 15px;
       height: 35px;
+      padding: 2px 15px;
+      margin-right: 15px;
+      color: colors.$BLACK;
+      word-break: keep-all;
+      cursor: pointer;
+      background-color: rgb(226, 232, 240);
       border: none;
       border-radius: 3px;
-      background-color: rgb(226, 232, 240);
-      color: black;
-      padding: 2px 15px;
-      cursor: pointer;
       transition: 0.2s ease-out;
-      word-break: keep-all;
 
       a {
         width: 100%;
@@ -59,56 +59,54 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, minmax(100px, 1fr));
-
     row-gap: 1.2rem;
     column-gap: 1.2rem;
 
     li {
       // 반응형에서 값을 바꾸도록 하자
       height: 400px;
+      background-color: colors.$WHITE;
       border: none;
       border-radius: 15px;
-      background-color: colors.$WHITE;
       transition: all 0.2s !important;
 
       &:hover {
-        box-shadow: 0px 5px 10px 3px rgba(colors.$WHITE, 0.8);
-
+        box-shadow: 0 5px 10px 3px rgba(colors.$WHITE, 0.8);
         transform: translateY(-15px);
       }
 
       img {
-        padding: 10px;
         width: 100%;
         height: 200px;
+        padding: 10px;
       }
 
       h2 {
-        text-align: center;
-        font-weight: bold;
         font-size: 1.2em;
-        color: black;
+        font-weight: bold;
+        color: colors.$BLACK;
+        text-align: center;
       }
 
       .postMeta {
-        text-align: right;
         margin-bottom: 20px;
-        color: black;
+        color: colors.$BLACK;
+        text-align: right;
 
         span {
           margin-right: 5px;
           font-size: 0.7em;
-          color: black;
+          color: colors.$BLACK;
         }
       }
 
       .postContents {
-        padding: 0 15px;
         height: 150px;
+        padding: 0 15px;
         overflow: hidden;
-        word-break: break-all;
-        color: black;
         font-size: 0.8em;
+        color: colors.$BLACK;
+        word-break: break-all;
       }
     }
   }

@@ -1,21 +1,31 @@
+@use 'src/styles/colors';
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: white;
+  color: colors.$WHITE;
   word-break: keep-all;
 }
 
 html,
 body {
-  background-color: black;
-  color: white;
-
+  font-family:
+    'Noto Sans KR',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-size: 20px;
-
-  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  color: colors.$WHITE;
+  background-color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,6 +36,6 @@ li {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }

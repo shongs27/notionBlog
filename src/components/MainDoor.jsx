@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import styles from './mainDoor.module.scss';
+import styles from './mainDoor.module.scss'
 
 export default function MainDoor() {
   return (
@@ -35,5 +35,5 @@ export default function MainDoor() {
         </a>
       </div>
     </div>
-  );
+  )
 }

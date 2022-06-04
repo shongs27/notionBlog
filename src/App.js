@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { Route, Routes } from "react-router-dom"
 
-import Layout from './commons/Layout';
-import PostDetail from './commons/PostDetail';
-import TagPosts from './commons/TagPosts';
-import About from './components/About';
-import Contact from './components/Contact';
-import { getPosts } from './slice';
+import Layout from "./commons/Layout"
+import PostDetail from "./commons/PostDetail"
+import TagPosts from "./commons/TagPosts"
+import About from "./components/About"
+import Contact from "./components/Contact"
+import { getPosts } from "./slice"
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
+    dispatch(getPosts())
+  }, [dispatch])
 
   return (
     <div>
@@ -28,7 +28,7 @@ function App() {
         </Route>
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

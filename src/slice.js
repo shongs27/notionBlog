@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 // import { fetchRegions } from './services/api';
 
@@ -104,7 +104,7 @@ const initialState = {
     'css-91fc5fd38ec445479eb122634c0690c9',
     'b9da1873cca446a182c9574b33aaf67b',
   ],
-};
+}
 
 const reducers = {
   setPost: (state, { payload: post }) => ({ ...state, post }),
@@ -125,13 +125,13 @@ const reducers = {
     ...state,
     currentPage,
   }),
-};
+}
 
 const { actions, reducer } = createSlice({
   name: 'app',
   initialState,
   reducers,
-});
+})
 
 export const {
   setPost,
@@ -141,13 +141,13 @@ export const {
   setContactForm,
   changeContactForm,
   setCurrentPage,
-} = actions;
+} = actions
 
-export default reducer;
+export default reducer
 
 export function getPosts() {
   return async (dispatch, getState) => {
-    const { postsID } = getState();
+    const { postsID } = getState()
 
     const responses = await Promise.all(
       postsID.map((NOTION_PAGE_ID) =>
@@ -155,23 +155,23 @@ export function getPosts() {
           (res) => res.json()
         )
       )
-    );
+    )
 
-    dispatch(setPosts(responses));
-  };
+    dispatch(setPosts(responses))
+  }
 }
 
 export function loadPost(NOTION_PAGE_ID) {
   return async (dispatch, getState) => {
     const response = await fetch(
       `https://notion-api.splitbee.io/v1/page/${NOTION_PAGE_ID}`
-    );
-    const post = await response.json();
+    )
+    const post = await response.json()
 
-    dispatch(setPost(post));
+    dispatch(setPost(post))
 
-    const { pagePosts } = getState();
-    const { tags } = pagePosts.find(({ id }) => id === NOTION_PAGE_ID);
-    dispatch(setPostTags(tags));
-  };
+    const { pagePosts } = getState()
+    const { tags } = pagePosts.find(({ id }) => id === NOTION_PAGE_ID)
+    dispatch(setPostTags(tags))
+  }
 }

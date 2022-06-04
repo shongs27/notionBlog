@@ -1,12 +1,12 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import Nav from './Nav';
-import FooterBar from './FooterBar';
-import MainDoor from '../components/MainDoor';
+import { Outlet, useLocation } from 'react-router-dom'
+import Nav from './Nav'
+import FooterBar from './FooterBar'
+import MainDoor from '../components/MainDoor'
 
-import styles from './layout.module.scss';
+import styles from './layout.module.scss'
 
 export default function Layout() {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   return (
     <div className={styles.layout}>
@@ -32,5 +32,5 @@ export default function Layout() {
         <FooterBar />
       </footer>
     </div>
-  );
+  )
 }

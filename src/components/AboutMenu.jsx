@@ -1,32 +1,32 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowUpIcon, ClipboardIcon, EnvelopeIcon } from '../assets/svgs';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { ArrowUpIcon, ClipboardIcon, EnvelopeIcon } from '../assets/svgs'
 
-import styles from './aboutMenu.module.scss';
-import cx from 'classnames';
+import styles from './aboutMenu.module.scss'
+import cx from 'classnames'
 // import ClipboardGuide from './ClipboardGuide';
 
 export default function AboutMenu() {
-  const [hasClipboard, setHasClipboard] = useState(false);
-  const navigate = useNavigate();
+  const [hasClipboard, setHasClipboard] = useState(false)
+  const navigate = useNavigate()
 
   function handleNavigate() {
-    navigate('/contact');
-    handleScroll();
+    navigate('/contact')
+    handleScroll()
   }
 
   function handleEmail() {
-    navigator.clipboard.writeText('shongs27@gmail.com');
-    setHasClipboard((prev) => !prev);
+    navigator.clipboard.writeText('shongs27@gmail.com')
+    setHasClipboard((prev) => !prev)
 
-    //초기화
+    // 초기화
     setTimeout(() => {
-      setHasClipboard((prev) => !prev);
-    }, 2000);
+      setHasClipboard((prev) => !prev)
+    }, 2000)
   }
 
   function handleScroll() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   return (
@@ -68,5 +68,5 @@ export default function AboutMenu() {
         </div>
       )}
     </>
-  );
+  )
 }

@@ -1,3 +1,5 @@
+@use 'src/styles/colors';
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -13,36 +15,31 @@
     line-height: 1.6em;
 
     strong {
-      color: #8d99ff;
+      color: colors.$PUPLE;
     }
   }
 
   & button {
-    margin-top: 2em;
-
     width: 200px;
     height: 75px;
     padding: 1em 2em;
-
+    margin-top: 2em;
     overflow: hidden;
-
     font-size: 1.2em;
+    color: colors.$BLACK;
     background-color: #dfe5ed;
-    color: black;
-
-    border-radius: 2em;
     border: none;
+    border-radius: 2em;
     outline: none;
-
     transition: width 0.5s ease-out, background-color 0.5s ease-out;
 
     &:hover {
-      cursor: pointer;
       width: 250px;
       height: 75px;
-      background-color: #8d99ff;
-      color: white;
       font-weight: bold;
+      color: colors.$WHITE;
+      cursor: pointer;
+      background-color: #8d99ff;
     }
   }
 }
@@ -57,7 +54,7 @@
   }
 
   &:hover {
-    transform: rotateY(180deg);
     transition: 1s ease-out;
+    transform: rotateY(180deg);
   }
 }

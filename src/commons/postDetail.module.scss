@@ -14,20 +14,20 @@
   }
 
   li {
-    margin-left: 15px;
     margin-right: 5px;
+    margin-left: 15px;
   }
 
   button {
-    color: colors.$PUPLE;
-    padding: 0.2em 0.4em;
-    border-radius: 10%;
-    border: 3px solid colors.$S-WHITE;
-    background-color: inherit;
-    font-weight: bold;
-    font-size: 0.8em;
     height: 100%;
+    padding: 0.2em 0.4em;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: colors.$PUPLE;
     cursor: pointer;
+    background-color: inherit;
+    border: 3px solid colors.$SWHITE;
+    border-radius: 10%;
     transition: border 0.2s cubic-bezier(0.08, 0.52, 0.52, 1);
 
     &:hover {
@@ -42,9 +42,9 @@
   a {
     flex: 1 50%;
     max-width: 50%;
-    border: 1px solid colors.$S-WHITE;
-    border-radius: 0.4em;
     padding: 1em;
+    border: 1px solid colors.$SWHITE;
+    border-radius: 0.4em;
     transition: border-color 0.2s cubic-bezier(0.08, 0.52, 0.52, 1);
 
     &:hover {
