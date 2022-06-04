@@ -6,7 +6,8 @@ import PageNation from './PageNation';
 import styles from './tagPosts.module.scss';
 
 export default function TagPosts() {
-  const tag = useParams().tag?.toUpperCase() || 'BLOG';
+  const params = useParams().tag;
+  const tag = params ? params[0].toUpperCase() + params.slice(1) : 'BLOG';
 
   const dispatch = useDispatch();
   const pagePosts = useSelector((state) => state.pagePosts);
@@ -50,23 +51,26 @@ export default function TagPosts() {
       <ul className={styles.postList}>
         {pagePosts
           .slice(offset, offset + PER_PAGE_COUNT)
-          .map(({ id, title, writer, date, tags, contents }) => (
-            <li>
-              <Link to={`/posts/${id}`}>
-                <img
-                  src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-                  alt="공사중"
-                />
-                <h2>{title}</h2>
-                <p className={styles.postMeta}>
-                  <span>{writer}</span>
-                  <span> | </span> <span>{date}</span>
-                  {/* <span>tags[0]</span> */}
-                </p>
-                <p className={styles.postContents}>{contents}</p>
-              </Link>
-            </li>
-          ))}
+          .map(({ id, title, writer, date, tags, contents }) => {
+            const slicedContents = contents.slice(0, 85) + '...';
+
+            return (
+              <li>
+                <Link to={`/posts/${id}`}>
+                  <img
+                    src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+                    alt="공사중"
+                  />
+                  <h2>{title}</h2>
+                  <p className={styles.postMeta}>
+                    <span>{writer}</span>
+                    <span> | </span> <span>{date}</span>
+                  </p>
+                  <p className={styles.postContents}>{slicedContents}</p>
+                </Link>
+              </li>
+            );
+          })}
       </ul>
 
       <div className={styles.pageNationContainer}>
