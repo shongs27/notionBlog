@@ -15,6 +15,13 @@ export default function Nav() {
     dispatch(changeSearchInput(e.currentTarget.value));
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    alert('아직 검색을 위한 백엔드 서버는 미구현 입니다 (┬┬﹏┬┬)');
+    dispatch(changeSearchInput());
+  }
+
   useEffect(() => {
     const debounce = () =>
       setTimeout(() => {
@@ -38,7 +45,7 @@ export default function Nav() {
           </Link>
         </div>
         <div className={styles.search}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <SearchIcon />
             <input type="text" value={search} onChange={handleChange} />
           </form>

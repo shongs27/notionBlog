@@ -38,7 +38,12 @@ export default function PageNation({ page, totalPage, handlePage }) {
       {Array(totalPage)
         .fill()
         .map((_, i) => (
-          <button type="button" data-page={i + 1} onClick={handleClick}>
+          <button
+            type="button"
+            data-page={i + 1}
+            onClick={handleClick}
+            aria-current={page === i + 1 ? 'page' : null}
+          >
             {i + 1}
           </button>
         ))}

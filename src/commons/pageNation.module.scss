@@ -34,5 +34,16 @@
       color: colors.$WHITE;
       background-color: colors.$PUPLE;
     }
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    &[aria-current] {
+      color: colors.$WHITE;
+      background-color: colors.$PUPLE;
+      font-weight: bold;
+      cursor: revert;
+    }
   }
 }

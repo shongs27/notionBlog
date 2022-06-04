@@ -6,7 +6,7 @@ import PageNation from './PageNation';
 import styles from './tagPosts.module.scss';
 
 export default function TagPosts() {
-  const tag = useParams().tag?.toUpperCase();
+  const tag = useParams().tag?.toUpperCase() || 'BLOG';
 
   const dispatch = useDispatch();
   const pagePosts = useSelector((state) => state.pagePosts);

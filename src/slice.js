@@ -16,11 +16,11 @@ const initialState = {
   // 2. TagPosts에서 쓰임 [미구현]
   // ?notion에서 API를 보내 따로 받아와서 pagePosts에 저장
   // pagePosts-> pageTags와 pageTotalTags도 비동기 함수로 클라이언트에서 만듦
-  pageTotalTags: 8,
+  pageTotalTags: 10,
   pageTags: [
     { tag: 'Javascript', count: 4 },
-    { tag: '브라우저', count: 3 },
-    { tag: 'CS', count: 1 },
+    { tag: '브라우저', count: 5 },
+    { tag: 'CS', count: 2 },
   ],
   pagePosts: [
     {
@@ -73,21 +73,22 @@ const initialState = {
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
     {
-      id: '37f234a3081e4b898b0ad79ca2aeb7af',
-      title: '브라우저의 렌더링 과정',
+      id: 'css-91fc5fd38ec445479eb122634c0690c9',
+
+      title: 'CSS',
       writer: '홍원배',
-      date: '2022-05-28',
-      tags: ['브라우저', 'Javascript'],
+      date: '2022-05-29',
+      tags: ['브라우저'],
       contents:
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
     {
-      id: '060753dff10a4a2ab9df5e940a81c84a',
+      id: 'b9da1873cca446a182c9574b33aaf67b',
 
-      title: '호이스팅',
+      title: '이벤트 루프',
       writer: '홍원배',
-      date: '2022-05-28',
-      tags: ['Javascript'],
+      date: '2022-05-29',
+      tags: ['CS', '브라우저'],
       contents:
         '결론 자바스크립트는 프로토타입 기반 언어이다. 프로토타입은 원형(유전자)라는 뜻이다. (객체의 원형, 즉 객체의 부모가 가지는 유전자 즉,...',
     },
@@ -100,6 +101,8 @@ const initialState = {
     '72751ae7a3124d6a865743202dcdbad1',
     'this-495aaded184344c9ba60df3f42f8f22d',
     '44ff251f82a24300b3179b3add46ac4d',
+    'css-91fc5fd38ec445479eb122634c0690c9',
+    'b9da1873cca446a182c9574b33aaf67b',
   ],
 };
 
@@ -107,7 +110,10 @@ const reducers = {
   setPost: (state, { payload: post }) => ({ ...state, post }),
   setPostTags: (state, { payload: postTags }) => ({ ...state, postTags }),
   setPosts: (state, { payload: posts }) => ({ ...state, posts }),
-  changeSearchInput: (state, { payload: text }) => ({ ...state, search: text }),
+  changeSearchInput: (state, { payload: text = '' }) => ({
+    ...state,
+    search: text,
+  }),
   changeContactForm: (state, { payload: { name, value } }) => ({
     ...state,
     contactForm: {
