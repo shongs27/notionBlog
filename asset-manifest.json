@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.179b6d51.css",
-    "main.js": "/static/js/main.c4a82131.js",
-    "static/js/787.f587e8d5.chunk.js": "/static/js/787.f587e8d5.chunk.js",
-    "index.html": "/index.html",
-    "static/media/clipboard.svg": "/static/media/clipboard.ccd3f67f91399cc4a844c63be11d29b8.svg",
-    "static/media/circleQuestion.svg": "/static/media/circleQuestion.ec45567429a7a2f02cae397e270451d4.svg",
-    "static/media/search.svg": "/static/media/search.2449dc21ecf607ed4c1b8cd5d53cff58.svg",
-    "static/media/arrowUp.svg": "/static/media/arrowUp.39aeed09d0f753292fd32e92ba82995d.svg",
-    "static/media/envelope.svg": "/static/media/envelope.dba533a0d3bd121023c13a25036858ed.svg",
-    "main.179b6d51.css.map": "/static/css/main.179b6d51.css.map",
-    "main.c4a82131.js.map": "/static/js/main.c4a82131.js.map",
-    "787.f587e8d5.chunk.js.map": "/static/js/787.f587e8d5.chunk.js.map"
+    "main.css": "/notionBlog/static/css/main.179b6d51.css",
+    "main.js": "/notionBlog/static/js/main.dd8cc28d.js",
+    "static/js/787.f587e8d5.chunk.js": "/notionBlog/static/js/787.f587e8d5.chunk.js",
+    "index.html": "/notionBlog/index.html",
+    "static/media/clipboard.svg": "/notionBlog/static/media/clipboard.ccd3f67f91399cc4a844c63be11d29b8.svg",
+    "static/media/circleQuestion.svg": "/notionBlog/static/media/circleQuestion.ec45567429a7a2f02cae397e270451d4.svg",
+    "static/media/search.svg": "/notionBlog/static/media/search.2449dc21ecf607ed4c1b8cd5d53cff58.svg",
+    "static/media/arrowUp.svg": "/notionBlog/static/media/arrowUp.39aeed09d0f753292fd32e92ba82995d.svg",
+    "static/media/envelope.svg": "/notionBlog/static/media/envelope.dba533a0d3bd121023c13a25036858ed.svg",
+    "main.179b6d51.css.map": "/notionBlog/static/css/main.179b6d51.css.map",
+    "main.dd8cc28d.js.map": "/notionBlog/static/js/main.dd8cc28d.js.map",
+    "787.f587e8d5.chunk.js.map": "/notionBlog/static/js/787.f587e8d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.179b6d51.css",
-    "static/js/main.c4a82131.js"
+    "static/js/main.dd8cc28d.js"
   ]
 }
