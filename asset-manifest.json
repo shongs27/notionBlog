@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/notionBlog/static/css/main.3c27d0c3.css",
+    "main.css": "/notionBlog/static/css/main.89f9ba27.css",
     "main.js": "/notionBlog/static/js/main.289c121c.js",
     "static/js/787.f587e8d5.chunk.js": "/notionBlog/static/js/787.f587e8d5.chunk.js",
     "index.html": "/notionBlog/index.html",
@@ -9,12 +9,12 @@
     "static/media/search.svg": "/notionBlog/static/media/search.2449dc21ecf607ed4c1b8cd5d53cff58.svg",
     "static/media/arrowUp.svg": "/notionBlog/static/media/arrowUp.39aeed09d0f753292fd32e92ba82995d.svg",
     "static/media/envelope.svg": "/notionBlog/static/media/envelope.dba533a0d3bd121023c13a25036858ed.svg",
-    "main.3c27d0c3.css.map": "/notionBlog/static/css/main.3c27d0c3.css.map",
+    "main.89f9ba27.css.map": "/notionBlog/static/css/main.89f9ba27.css.map",
     "main.289c121c.js.map": "/notionBlog/static/js/main.289c121c.js.map",
     "787.f587e8d5.chunk.js.map": "/notionBlog/static/js/787.f587e8d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c27d0c3.css",
+    "static/css/main.89f9ba27.css",
     "static/js/main.289c121c.js"
   ]
 }
